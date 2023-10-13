@@ -45,7 +45,7 @@ const Product = () => {
               price
             }
             {' '}
-            $
+            Af
           </p>
         </li>
         <li className="product-info">
