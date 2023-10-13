@@ -18,6 +18,7 @@ const Products = () => {
         console.log(err);
       });
     setFilter(res.data);
+    setLoading(false);
     dispatch(setProducts(res.data));
   }, [dispatch]);
 
@@ -34,6 +35,16 @@ const Products = () => {
     });
     setFilter(filteredData);
   };
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <div className="spinner" />
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <>
       <Search onSearch={handleSearch} />
