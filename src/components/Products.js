@@ -10,12 +10,13 @@ const Products = () => {
   const dispatch = useDispatch();
   const [filter, setFilter] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const products = useSelector((state) => state.products);
   const fetchProducts = useCallback(async () => {
     const res = await axios
       .get('https://api.escuelajs.co/api/v1/products')
       .catch((err) => {
-        console.log(err);
+        setError(err);
       });
     setFilter(res.data);
     setLoading(false);
@@ -36,6 +37,13 @@ const Products = () => {
     setFilter(filteredData);
   };
 
+  if (error) {
+    return (
+      <div className="error">
+        {error}
+      </div>
+    );
+  }
   if (loading) {
     return (
       <div className="loading">
