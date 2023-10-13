@@ -4,4 +4,64 @@ header {
   font-weight: 500;
   text-align: center;
   background: #d42b74c0;
+  width: 100%;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 190px;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.even {
+  background-color: #d42b74c0;
+}
+
+.odd {
+  background-color: #cd3b7ab7;
+}
+
+.card-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-title {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.product-price {
+  color: #fff;
+}
+
+.product-description {
+  font-size: 14px;
+  white-space: nowrap;     
+  overflow: hidden;        
+  text-overflow: ellipsis; 
+  max-width: 160px; 
 }
