@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { RiSearchLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
 
 const Search = ({ onSearch }) => {
@@ -20,7 +20,9 @@ const Search = ({ onSearch }) => {
         onChange={handleInputChange}
         data-testid="search-text"
       />
-      
+      <button type="button">
+        <RiSearchLine className="i" />
+      </button>
     </div>
   );
 };
