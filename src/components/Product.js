@@ -1,7 +1,8 @@
 import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { FaAngleLeft } from 'react-icons/fa';
 import { setProductDetails } from '../redux/products/productDetailsSlice';
 
 const Product = () => {
@@ -9,7 +10,7 @@ const Product = () => {
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
   const {
-    id, title, price, description, images,
+    title, price, description, images,
   } = productDetails;
 
   const fetchProductDetails = useCallback(async () => {
@@ -25,14 +26,34 @@ const Product = () => {
     fetchProductDetails();
   }, [fetchProductDetails, productId]);
   return (
-    <div>
-      <p>{id}</p>
-      <p>{title}</p>
-      <p>{price}</p>
-      <p>{description}</p>
-      <img src={images} alt={title} />
-
+    <div className="product-details">
+      <Link to="/" className="back-link">
+        <FaAngleLeft className="back-icon" />
+      </Link>
+      <ul className="list">
+        <li>
+          <img src={images} alt={title} className="image" />
+        </li>
+        <li className="product-info">
+          <p className="title">{title}</p>
+        </li>
+        <li className="product-info">
+          <p className="price">
+            Price:
+            {' '}
+            {
+              price
+            }
+            {' '}
+            $
+          </p>
+        </li>
+        <li className="product-info">
+          <p className="description">{description}</p>
+        </li>
+      </ul>
     </div>
+
   );
 };
 
