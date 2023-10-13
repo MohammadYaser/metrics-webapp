@@ -9,6 +9,7 @@ const Product = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const productDetails = useSelector((state) => state.productDetails);
   const {
     title, price, description, images,
@@ -18,7 +19,7 @@ const Product = () => {
     const res = await axios
       .get(`https://api.escuelajs.co/api/v1/products/${productId}`)
       .catch((err) => {
-        console.log(err);
+        setError(err);
       });
     dispatch(setProductDetails(res.data));
     setLoading(false);
@@ -27,6 +28,13 @@ const Product = () => {
   useEffect(() => {
     fetchProductDetails();
   }, [fetchProductDetails, productId]);
+  if (error) {
+    return (
+      <div className="error">
+        {error}
+      </div>
+    );
+  }
   if (loading) {
     return (
       <div className="loading">
