@@ -17,7 +17,7 @@ header::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #007bff, #4CAF50);
+  background: linear-gradient(135deg, #007bff, #4caf50);
   z-index: -1;
 }
 
@@ -78,10 +78,10 @@ header::before {
 
 .product-description {
   font-size: 14px;
-  white-space: nowrap;     
-  overflow: hidden;        
-  text-overflow: ellipsis; 
-  max-width: 160px; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
 }
 
 .arrow-right {
@@ -107,7 +107,6 @@ header::before {
   padding: 8px;
   outline: none;
 }
-
 
 .search button {
   background: #cd3b7ab7;
@@ -174,6 +173,7 @@ header::before {
 .description {
   font-size: 14px;
 }
+
 /* Back Link Styles */
 .back-link {
   position: absolute;
@@ -212,6 +212,7 @@ header::before {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
