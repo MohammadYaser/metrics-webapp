@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { setProductDetails } from '../redux/products/productDetailsSlice';
 const Product = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
   const productDetails = useSelector((state) => state.productDetails);
   const {
     title, price, description, images,
@@ -20,11 +21,20 @@ const Product = () => {
         console.log(err);
       });
     dispatch(setProductDetails(res.data));
+    setLoading(false);
   }, [dispatch, productId]);
 
   useEffect(() => {
     fetchProductDetails();
   }, [fetchProductDetails, productId]);
+  if (loading) {
+    return (
+      <div className="loading">
+        <div className="spinner" />
+        <p>Loading...</p>
+      </div>
+    );
+  }
   return (
     <div className="product-details">
       <Link to="/" className="back-link">
