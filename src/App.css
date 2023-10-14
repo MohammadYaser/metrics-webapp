@@ -1,3 +1,226 @@
-body {
-  background-color: aliceblue;
+header {
+  background: #d42b74c0;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #007bff, #4caf50);
+  z-index: -1;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  margin-top: 2%;
+}
+
+.product-card {
+  padding: 10px;
+  box-sizing: border-box;
+  width: 190px;
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* Hover effect - scale up on hover */
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.even {
+  background-color: #d42b74c0;
+}
+
+.odd {
+  background-color: #ec74a8b7;
+}
+
+.card-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-title {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.product-price {
+  color: #fff;
+}
+
+.product-description {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.arrow-right {
+  margin-right: -85%;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 12%;
+  margin-top: 2%;
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  padding: 8px;
+  outline: none;
+}
+
+.search button {
+  background: #cd3b7ab7;
+  border: none;
+  color: #fff;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.search button .i {
+  font-size: 16px;
+}
+
+/* Product Details Styles */
+.product-details {
+  background-color: #cd3b7ab7;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  display: flex; /* Make the container a flex container */
+  flex-direction: column; /* Stack elements vertically on mobile */
+  align-items: center; /* Center items horizontally */
+  color: #fff;
+}
+
+/* Product List Styles */
+.list {
+  list-style: none;
+  padding: 0;
+  width: 100%; /* Ensure the list takes full width */
+}
+
+/* Product List Item Styles */
+.list li:nth-child(odd) {
+  background-color: #cd3b7ab7;/* Background color for odd items */
+}
+
+.list li:nth-child(even) {
+  background-color: #a31050c0;/* Background color for even items */
+}
+
+/* Product Image Styles */
+.image {
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+  height: auto; /* Maintain the aspect ratio */
+  display: block; /* Remove any residual inline styles */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Product Info Styles */
+.product-info {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Product Title Styles */
+.title {
+  font-weight: bold;
+}
+
+/* Product Description Styles */
+.description {
+  font-size: 14px;
+}
+
+/* Back Link Styles */
+.back-link {
+  position: absolute;
+  top: 13px;
+  left: 10px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Back Icon Styles */
+.back-icon {
+  font-size: 1.6em;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
 }
